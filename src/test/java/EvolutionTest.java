@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -14,7 +16,22 @@ public class EvolutionTest {
                 {0,0,1,0},
                 {0,0,0,1},
                 {0,0,1,0}};
-        assertEquals(target,new  Evolution().onceReplace(defaultMatrix));
+        System.out.println("defaultMatrix：");
+        for(int[] dd : defaultMatrix){
+            for(int d : dd){
+                System.out.print(d + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("target：");
+        int[][] result = new  Evolution().onceReplace(defaultMatrix);
+
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j < 4; j++) {
+                assertEquals(target[i][j], result[i][j]);
+            }
+        }
     }
 
 
